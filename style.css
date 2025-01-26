@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0f7fa; /* Fondo celeste suave */
+  margin: 0;
+  overflow: hidden; /* Quitar barra de desplazamiento */
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #87ceeb; /* Celeste */
+  border-radius: 10px; /* Borde redondeado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  transition: transform 0.3s ease-in-out;
+}
+
+.envelope::before,
+.envelope::after {
+  content: "";
+  position: absolute;
+}
+
+.envelope::before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #87ceeb;
+  border-radius: 10px 10px 0 0; /* Borde redondeado */
+}
+
+.envelope::after {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid #87ceeb;
+  border-radius: 0 0 10px 10px; /* Borde redondeado */
+}
+
+.open-btn {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.open-btn:hover {
+  background-color: #d3d3d3;
+}
+
+.open-btn .heart {
+  margin-left: 10px;
+  color: #87ceeb; /* Corazón celeste */
+}
+
+.card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+  z-index: 2; /* Para que la carta aparezca encima del botón */
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.card.open {
+  display: flex;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.paper {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra interna */
+}
+
+h3 {
+  margin-top: 0;
+}
